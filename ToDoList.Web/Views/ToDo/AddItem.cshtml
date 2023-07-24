@@ -1,0 +1,44 @@
+﻿@using ToDoList.Web.ViewModels.ToDoes
+
+@model CreateItemViewModel 
+<div class="text-center">
+    <h2>@ViewBag.Id</h2>
+
+</div>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0 my-2">Create Todo</h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" asp-action="NewItem" enctype="multipart/form-data">
+                                <input asp-for="ToDoId" type="hidden" value="@ViewBag.Id">
+                                <div class="form-group mb-3">
+                                    <input asp-for="Title" class="form-control form-control-lg" placeholder="Enter Item Title" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input asp-for="Description" class="form-control form-control-lg" placeholder="Enter Item Description" />
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input asp-for="DueDate" class="form-control form-control-lg" type="datetime-local" placeholder="Enter Item Description" />
+                                    <span asp-validation-for="DueDate" class="text-danger"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-end">
+                                        <button class="btn btn-success btn-lg" type="submit">Create</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

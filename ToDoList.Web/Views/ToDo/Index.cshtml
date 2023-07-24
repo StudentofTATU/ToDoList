@@ -1,0 +1,30 @@
+﻿@using ToDoList.Web.ViewModels.ToDoes
+
+@model IEnumerable<ToDoViewModel>
+@{
+    ViewData["Title"] = "ToDO List Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">ToDo list</h1>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ToDoViewModel toDo in Model)
+            {
+                <tr>
+                    @*<th><input type="checkbox" id="@toDo.Id" /></th>*@
+                    <th>@toDo.Id ,@toDo.Name   , @toDo.Visibility
+                      <a  asp-controller="ToDo" asp-action="ToDoDetail" asp-route-id="@toDo.Id"> Detail </a> 
+
+                    </th>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

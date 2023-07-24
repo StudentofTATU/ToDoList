@@ -1,0 +1,30 @@
+﻿@using ToDoList.Web.ViewModels.Items;
+@using ToDoList.Web.ViewModels.ToDoes
+
+@model ToDoViewModel
+@{
+
+}
+<div class="text-center">
+    <h1 class="display-4">@Model.Name</h1>
+    <h2>@Model.Id</h2>
+    <a  asp-controller="ToDo" asp-action="AddItem" asp-route-id="@Model.Id"> Add Items </a> 
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ItemViewModel item in Model.Items)
+            {
+                <tr>
+                    <th>
+                       @item.Title, @item.Description
+                    </th>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
